@@ -1,0 +1,1 @@
+java -jar "./target/PhilSys-Authentication-Demo-0.1.jar" --spring.config.location=application.sandbox.internal.properties
