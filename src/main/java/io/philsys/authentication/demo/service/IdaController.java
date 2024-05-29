@@ -355,7 +355,6 @@ public class IdaController {
 
 
 		File file = new File("." + File.separator + "images" + File.separator + "psa-logo.png");
-		// Image image = new Image(file.toURI().toString());
 		ekycPhoto.setImage(new Image(file.toURI().toString()));
 	}
 
@@ -850,6 +849,8 @@ public class IdaController {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@FXML
 	private void onSendAuthRequest() throws Exception {
+		resetEkycOutput();
+
 		responsetextField.setText(null);
 		responsetextField.setStyle("-fx-text-fill: black; -fx-font-size: 20px; -fx-font-weight: bold");
 		responsetextField.setText("Preparing Auth Request...");
@@ -1032,6 +1033,29 @@ public class IdaController {
 			responsetextField.setText("Authentication Failed with Error");
 			responsetextField.setStyle("-fx-text-fill: red; -fx-font-size: 20px; -fx-font-weight: bold");
 		}
+	}
+
+	private void resetEkycOutput() {
+		ekycLastName.setText("---");
+		ekycFirstName.setText("---");
+		ekycMiddleName.setText("---");
+		ekycSuffix.setText("---");
+		ekycName.setText("---");
+		ekycEmail.setText("---");
+		ekycPhoneNumber.setText("---");
+		ekycCountry.setText("---");
+		ekycDateOfBirth.setText("---");
+		ekycAge.setText("---");
+		ekycBloodType.setText("---");
+		ekycPostalCode.setText("---");
+		ekycMaritalStatus.setText("---");
+		ekycPresentAddress.setText("---");
+		ekycProvince.setText("---");
+		ekycBarangay.setText("---");
+		ekycMunicipality.setText("---");
+
+		File file = new File("." + File.separator + "images" + File.separator + "psa-logo.png");
+		ekycPhoto.setImage(new Image(file.toURI().toString()));
 	}
 
 	private boolean isPreLTS() {
