@@ -442,19 +442,19 @@ public class IdaController {
 
 	@FXML
 	private void onOTPAuth() {
-		responsetextField.setText(null);
+		// responsetextField.setText(null);
 		otpAnchorPane.setDisable(!otpAnchorPane.isDisable());
 		updateSendButton();
 	}
 
 	@FXML
 	private void onIdTypeChange() {
-		responsetextField.setText(null);
+		// responsetextField.setText(null);
 	}
 
 	@FXML
 	private void onSubTypeSelection() {
-		responsetextField.setText(null);
+		// responsetextField.setText(null);
 	}
 
 	@FXML

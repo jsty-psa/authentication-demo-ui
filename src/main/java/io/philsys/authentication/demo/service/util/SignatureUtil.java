@@ -80,15 +80,14 @@ public class SignatureUtil {
 			jwSign.setHeader("x5u", certificateUrl);
 
 		jwSign.setPayload(dataToSign);
-		// jwSign.setPayload("");
 		jwSign.setAlgorithmHeaderValue(SIGN_ALGO);
 		jwSign.setKey(privateKey);
 		jwSign.setDoKeyValidation(false);
 		if (includePayload)
 			return jwSign.getCompactSerialization();
 
-		// System.out.println("Signature: \n" + jwSign.getCompactSerialization() + "\n");
-		System.out.println("Signature: \n" + jwSign.getDetachedContentCompactSerialization() + "\n");
+		System.out.println("Signature (Compact Serialization): \n" + jwSign.getCompactSerialization() + "\n");
+		System.out.println("Signature (Detatched Content Compact Serialization): \n" + jwSign.getDetachedContentCompactSerialization() + "\n");
 		
 		return jwSign.getDetachedContentCompactSerialization();
 		// return jwSign.getCompactSerialization();
