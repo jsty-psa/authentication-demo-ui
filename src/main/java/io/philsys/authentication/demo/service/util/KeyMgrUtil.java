@@ -374,8 +374,6 @@ public class KeyMgrUtil {
         // String partnerFilePath = dirPath + '/' + filePrepend + INTER_P12_FILE_NAME;
         String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
 
-        System.out.println("\nPrivate Key Entry:\n" + partnerFilePath + "\n");
-
         return getPrivateKeyEntry(partnerFilePath);
     }
 
@@ -478,6 +476,7 @@ public class KeyMgrUtil {
 	public X509Certificate getPublicCertificateEntry(String dirPath, String partnerId) throws KeyStoreException, IOException, CertificateException {
         // String partnerCertFilePath = dirPath + '/' + partnerId + PARTNER_CER_FILE_NAME;
         String partnerCertFilePath = dirPath + '/' + partnerId + "-IDAcertificate.cer";
+        // String partnerCertFilePath = dirPath + '/' + partnerId + "-PartnerCertificate.cer";
         // String partnerCertFilePath = dirPath + '/' + partnerId + "-signedcertificate.cer";
 
 		Path path = Paths.get(partnerCertFilePath);

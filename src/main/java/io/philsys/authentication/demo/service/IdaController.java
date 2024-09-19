@@ -356,8 +356,8 @@ public class IdaController {
 
 		File file = new File("." + File.separator + "images" + File.separator + "psa-logo.png");
 		ekycPhoto.setImage(new Image(file.toURI().toString()));
+	
 	}
-
 	private void displayDialog(String data) {
 		if(dialog ==  null || ekycTextArea == null) {
 			ekycTextArea = new TextArea();
@@ -945,6 +945,7 @@ public class IdaController {
 				byte[] decSecKey = decryptSecretKey(ekycKey.getPrivateKey(), encSecKey);
 				Cipher cipher = Cipher.getInstance("AES/GCM/PKCS5Padding"); //NoPadding
 				byte[] nonce = Arrays.copyOfRange(encResponse, encResponse.length - cipher.getBlockSize(), encResponse.length);
+				System.out.println("Cipher Block Size: " + cipher.getBlockSize() + "\n");
 				byte[] encryptedKycData = Arrays.copyOf(encResponse, encResponse.length - cipher.getBlockSize());
 				
 				SecretKey secretKey =  new SecretKeySpec(decSecKey, 0, decSecKey.length, "AES");
@@ -1189,7 +1190,6 @@ public class IdaController {
 		encryptionResponseDto.setEncryptedIdentity(Base64.encodeBase64URLSafeString(encryptedIdentityBlock));
 		X509Certificate certificate = getCertificate(identityBlock, isInternal);
 		PublicKey publicKey = certificate.getPublicKey();
-		System.out.println("Public Key:\n" + publicKey + "\n");
 		byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt((secretKey.getEncoded()), publicKey);
 		encryptionResponseDto.setEncryptedSessionKey(Base64.encodeBase64URLSafeString(encryptedSessionKeyByte));
 		byte[] byteArr = cryptoUtil.symmetricEncrypt(HMACUtils2.digestAsPlainText(identityBlock.getBytes(StandardCharsets.UTF_8)).getBytes(), secretKey);
