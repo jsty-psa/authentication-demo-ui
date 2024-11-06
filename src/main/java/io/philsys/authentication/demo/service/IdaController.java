@@ -270,6 +270,10 @@ public class IdaController {
 	@FXML
 	private Label ekycMunicipality;
 
+	// added residence status
+	@FXML
+	private Label ekycResidenceStatus;
+
 	private String capture;
 
 	private String previousHash;
@@ -1008,6 +1012,8 @@ public class IdaController {
 						ekycProvince.setText(ekyc_values.get("location1_eng"));
 						ekycBarangay.setText(ekyc_values.get("location3_eng"));
 						ekycMunicipality.setText(ekyc_values.get("location2_eng"));
+						// added residence status
+						ekycResidenceStatus.setText(ekyc_values.get("residenceStatus_eng"));
 
 						byte[] img = java.util.Base64.getDecoder().decode(ekyc_values.get("photo"));
 						ByteArrayInputStream inputStream = new ByteArrayInputStream(img);
@@ -1054,6 +1060,8 @@ public class IdaController {
 		ekycProvince.setText("---");
 		ekycBarangay.setText("---");
 		ekycMunicipality.setText("---");
+		// added residence status
+		ekycResidenceStatus.setText("---");
 
 		File file = new File("." + File.separator + "images" + File.separator + "psa-logo.png");
 		ekycPhoto.setImage(new Image(file.toURI().toString()));
